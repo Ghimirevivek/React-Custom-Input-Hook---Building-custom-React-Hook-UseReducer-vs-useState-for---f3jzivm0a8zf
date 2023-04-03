@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 //complete the input hook
-const useInput = () => {
+const useInput = (initialValue) => {
+  const [value, setValue] = useState(initialValue)
 
-};
+  const handleChange = (event) => {
+    setValue(event.target.value)
+  }
 
-export default useInput;
+  return {
+    value,
+    onChange: handleChange,
+  }
+}
+
+export default useInput
